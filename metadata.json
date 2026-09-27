@@ -1,0 +1,6 @@
+{
+  "name": "NE-FloodML: North-East India Flood Prediction & AI Mitigation Hub",
+  "description": "Comprehensive platform exploring machine learning models for flood forecasting, state-by-state vulnerability across North-East India, interactive hydrograph simulations, and global disaster mitigation benchmarks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
