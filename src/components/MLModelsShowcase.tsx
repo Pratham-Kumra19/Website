@@ -26,13 +26,13 @@ export const MLModelsShowcase: React.FC = () => {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-950/80 text-cyan-300 border border-cyan-800/60">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Advanced Hydro-Informatics & Deep Learning</span>
+            <span>AI Flood Forecasting Science</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Machine Learning Architectures for Flood Prediction & Disaster Mitigation
+            How AI Models Predict Floods and Protect Communities
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed">
-            North-East India poses unprecedented hydrological challenges: torrential Himalayan runoff, pervasive monsoon cloud cover blinding optical satellites, braided riverbeds, and transboundary data bottlenecks. Explore the five foundational machine learning paradigms engineered to overcome these hurdles.
+            North-East India faces tough forecasting hurdles: heavy Himalayan rain, monsoon clouds that block standard satellites, shifting riverbeds, and limited upstream river data. Here are the five AI methods built to overcome these challenges.
           </p>
         </div>
       </div>
@@ -103,7 +103,7 @@ export const MLModelsShowcase: React.FC = () => {
         <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-5 space-y-4">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 font-mono">
             <Activity className="w-4 h-4 text-cyan-400" />
-            End-to-End Operational Pipeline & Data Transformation Flow
+            How Data Flows Through the Model: Step-by-Step
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
@@ -111,7 +111,7 @@ export const MLModelsShowcase: React.FC = () => {
             <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-4 space-y-2">
               <div className="flex items-center justify-between text-xs font-bold text-slate-300">
                 <span className="flex items-center gap-1.5">
-                  <Database className="w-3.5 h-3.5 text-cyan-400" /> Input Ingestion
+                  <Database className="w-3.5 h-3.5 text-cyan-400" /> 1. Data Inputs
                 </span>
                 <span className="text-[10px] font-mono text-cyan-400">Step 01</span>
               </div>
@@ -129,7 +129,7 @@ export const MLModelsShowcase: React.FC = () => {
             <div className="rounded-xl border border-cyan-800/60 bg-cyan-950/30 p-4 space-y-2 relative shadow-lg shadow-cyan-950/50">
               <div className="flex items-center justify-between text-xs font-bold text-cyan-200">
                 <span className="flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5 text-cyan-400" /> Core ML Engine
+                  <Cpu className="w-3.5 h-3.5 text-cyan-400" /> 2. AI Processing
                 </span>
                 <span className="text-[10px] font-mono text-cyan-300">Step 02</span>
               </div>
@@ -137,7 +137,7 @@ export const MLModelsShowcase: React.FC = () => {
                 {activeModel.coreArchitecture}
               </p>
               <div className="mt-2 pt-2 border-t border-cyan-800/40 text-[11px] text-cyan-300 font-mono">
-                Forward Pass: {activeModel.computationalLatency}
+                Speed: {activeModel.computationalLatency}
               </div>
             </div>
 
@@ -145,7 +145,7 @@ export const MLModelsShowcase: React.FC = () => {
             <div className="rounded-xl border border-slate-800/80 bg-slate-900/60 p-4 space-y-2">
               <div className="flex items-center justify-between text-xs font-bold text-slate-300">
                 <span className="flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-emerald-400" /> Actionable Output
+                  <Zap className="w-3.5 h-3.5 text-emerald-400" /> 3. Flood Warnings & Maps
                 </span>
                 <span className="text-[10px] font-mono text-emerald-400">Step 03</span>
               </div>

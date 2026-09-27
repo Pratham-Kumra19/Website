@@ -1,5 +1,6 @@
 import React from 'react';
 import { Waves, ExternalLink, ShieldCheck, Database, FileText } from 'lucide-react';
+import { LpuLogo } from './LpuLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,20 +9,21 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand & Mandate */}
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-cyan-600 flex items-center justify-center text-white">
-                <Waves className="w-4 h-4" />
+            <div className="flex items-center gap-3">
+              <LpuLogo className="w-10 h-10" />
+              <div>
+                <span className="text-base font-extrabold text-white">
+                  JalDrishti <span className="text-cyan-400 font-mono">NE</span>
+                </span>
+                <p className="text-[10px] text-slate-400">Lovely Professional University</p>
               </div>
-              <span className="text-base font-extrabold text-white">
-                NE-Flood<span className="text-cyan-400 font-mono">ML</span>
-              </span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-md">
               A comprehensive open hydro-informatics and machine learning intelligence hub dedicated to monitoring, predicting, and mitigating annual flood catastrophes across North-East India (Assam, Arunachal Pradesh, Meghalaya, Manipur, Mizoram, Nagaland, Tripura, and Sikkim).
             </p>
             <div className="flex items-center gap-2 text-[11px] text-slate-400 pt-1 font-mono">
-              <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Grounded in Hydrometeorological & Remote Sensing Data</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-orange-400" />
+              <span>LPU Research Initiative • Hydrometeorological & Remote Sensing Intelligence</span>
             </div>
           </div>
 
@@ -65,7 +67,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <p>© 2026 NE-FloodML Research & Disaster Mitigation Platform. For civil defense, education, and early action.</p>
+          <p>© 2026 JalDrishti NE Research & Disaster Mitigation Platform. For civil defense, education, and early action.</p>
           <div className="flex items-center gap-4">
             <span>National Disaster Helpline: 112 / 1070</span>
             <span>ASDMA Assam: 1079</span>

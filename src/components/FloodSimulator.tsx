@@ -233,13 +233,13 @@ export const FloodSimulator: React.FC = () => {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-950/80 text-blue-300 border border-blue-800/60">
             <Sliders className="w-3.5 h-3.5" />
-            <span>Real-Time Hydro-Informatics Sandbox</span>
+            <span>Interactive River & Flood Simulator</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Interactive ML Flood Prediction & Inundation Simulator
+            See How Rain, Dams & River Walls Affect Flood Risk
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed">
-            Test how varying monsoon cloudburst intensities, soil saturation levels, upstream dam releases, and embankment aging affect river stage hydrographs across key North-East basins. Compare simulated predictions from multiple machine learning paradigms.
+            Adjust rainfall, soil wetness, dam water releases, and river wall (embankment) condition to see how river water levels rise or fall. Compare predictions across different AI models in real time.
           </p>
         </div>
       </div>
@@ -251,7 +251,7 @@ export const FloodSimulator: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Sliders className="w-4 h-4 text-cyan-400" />
-              Catchment & Meteorological Controls
+              River Basin & Weather Controls
             </h3>
             <button
               onClick={() => {

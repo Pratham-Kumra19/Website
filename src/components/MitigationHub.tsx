@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { NORTH_EAST_STATES } from '../data/northEastStates';
 
-export const MitigationHub: React.FC = () => {
+export const MitigationHub: React.FC<{ onOpenReportFlood?: () => void }> = ({ onOpenReportFlood }) => {
   const [broadcastState, setBroadcastState] = useState<string>('assam');
   const [threatSeverity, setThreatSeverity] = useState<'advisory' | 'danger' | 'extreme'>('danger');
   const [riverName, setRiverName] = useState<string>('Brahmaputra');
@@ -73,14 +73,27 @@ export const MitigationHub: React.FC = () => {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-rose-950/80 text-rose-300 border border-rose-800/60">
             <Radio className="w-3.5 h-3.5" />
-            <span>Disaster Mitigation & Early Action Network</span>
+            <span>Early Warnings & Flood Preparedness</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            AI-Enhanced Disaster Mitigation Strategies & Community Early Warning
+            How AI Helps Communities Prepare and Act Early
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed">
-            Machine learning shifts flood mitigation from passive recovery to predictive defense: real-time satellite embankment monitoring, multilingual automated citizen broadcasts, and community risk preparedness.
+            AI helps shift disaster response from reacting after a flood happens to taking action days in advance—by tracking river walls (embankments) from space, sending automated local alerts, and helping families prepare.
           </p>
+
+          {onOpenReportFlood && (
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={onOpenReportFlood}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-bold text-xs shadow-lg shadow-red-950 transition hover:scale-[1.02]"
+              >
+                <AlertTriangle className="w-4 h-4 text-white" />
+                <span>Be Flood Ready: Ground-Truth & Warning Alerts</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -90,9 +103,9 @@ export const MitigationHub: React.FC = () => {
           <div className="p-2.5 rounded-xl bg-cyan-950 text-cyan-400 border border-cyan-800/60 w-fit">
             <Layers className="w-5 h-5" />
           </div>
-          <h4 className="text-sm font-bold text-white">InSAR Embankment Health AI</h4>
+          <h4 className="text-sm font-bold text-white">River Wall (Dyke) Health Check</h4>
           <p className="text-xs text-slate-300 leading-relaxed">
-            Interferometric Synthetic Aperture Radar (InSAR) monitors millimeter-level ground subsidence along Assam's 4,474 km dykes, predicting structural breaches 48-72 hours before failure.
+            Radar satellites scan along Assam's 4,400+ km river walls for tiny ground shifts, warning engineers of weak spots 2 to 3 days before a breach can happen.
           </p>
         </div>
 
@@ -100,9 +113,9 @@ export const MitigationHub: React.FC = () => {
           <div className="p-2.5 rounded-xl bg-blue-950 text-blue-400 border border-blue-800/60 w-fit">
             <Anchor className="w-5 h-5" />
           </div>
-          <h4 className="text-sm font-bold text-white">Bathymetric Dredging AI</h4>
+          <h4 className="text-sm font-bold text-white">Riverbed Silt & Sandbar Clearing</h4>
           <p className="text-xs text-slate-300 leading-relaxed">
-            Predicts dynamic sediment deposition sandbars (chars) in the Brahmaputra, prioritizing targeted riverbed dredging to keep navigation channels open and lower flood stage crests.
+            Tracks shifting sandbars (chars) in the Brahmaputra, helping authorities clear shallow riverbeds in advance so floodwaters flow through smoothly.
           </p>
         </div>
 
@@ -110,9 +123,9 @@ export const MitigationHub: React.FC = () => {
           <div className="p-2.5 rounded-xl bg-emerald-950 text-emerald-400 border border-emerald-800/60 w-fit">
             <LifeBuoy className="w-5 h-5" />
           </div>
-          <h4 className="text-sm font-bold text-white">Autonomous Drone Search & Rescue</h4>
+          <h4 className="text-sm font-bold text-white">Rescue Boat & Drone Guidance</h4>
           <p className="text-xs text-slate-300 leading-relaxed">
-            Thermal and optical drones map marooned river hamlets on Majuli and Silchar, calculating optimal Gemini motorized rescue boat dispatch routes through flooded terrain.
+            Camera and thermal drones locate cut-off families in flooded areas, finding the safest and fastest boat routes for NDRF rescue teams.
           </p>
         </div>
 
@@ -120,9 +133,9 @@ export const MitigationHub: React.FC = () => {
           <div className="p-2.5 rounded-xl bg-amber-950 text-amber-400 border border-amber-800/60 w-fit">
             <ShieldAlert className="w-5 h-5" />
           </div>
-          <h4 className="text-sm font-bold text-white">Elevated Highland Network</h4>
+          <h4 className="text-sm font-bold text-white">High Ground & Animal Shelters</h4>
           <p className="text-xs text-slate-300 leading-relaxed">
-            Optimizes spatial placement of elevated earthen mounds and community flood shelters across Kaziranga and rural districts, ensuring safe refuge for wildlife and rural families.
+            Finds the best elevated locations for community shelters and wildlife mounds in areas like Kaziranga, keeping animals and people safe above water.
           </p>
         </div>
       </div>

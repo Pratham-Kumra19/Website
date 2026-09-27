@@ -131,3 +131,25 @@ export interface SimulationResult {
   actionItems: string[];
   modelConfidencePct: number;
 }
+
+export interface FloodReport {
+  id?: string;
+  userId: string;
+  userName: string;
+  userEmail: string;
+  stateId: NEStateId;
+  district: string;
+  locationDescription: string;
+  latitude: number;
+  longitude: number;
+  severity: 'advisory' | 'warning' | 'danger' | 'extreme';
+  waterDepthMeters: number;
+  submergedInfrastructure: string[];
+  urgencyStatus: 'urgent_rescue_needed' | 'water_entering_homes' | 'road_blocked' | 'monitoring';
+  subscribeAlerts: boolean;
+  alertEmail: string;
+  notifyOnWarning: boolean;
+  status: 'submitted' | 'verified_by_ndrf' | 'warning_broadcasted' | 'resolved';
+  createdAt: string;
+}
+

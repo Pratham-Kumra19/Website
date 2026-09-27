@@ -25,9 +25,10 @@ import {
 interface StateExplorerProps {
   selectedStateId: NEStateId;
   onSelectState: (stateId: NEStateId) => void;
+  onOpenReportFlood?: () => void;
 }
 
-export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, onSelectState }) => {
+export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, onSelectState, onOpenReportFlood }) => {
   const [activeTab, setActiveTab] = useState<'rainfall' | 'floodrisk' | 'previousfloods' | 'gauges' | 'mldeployments'>('rainfall');
 
   const currentState = NORTH_EAST_STATES[selectedStateId];
@@ -116,14 +117,27 @@ export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, o
             </p>
           </div>
 
-          {/* Emergency Helpline Box */}
-          <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-950/90 border border-slate-800">
-            <span className="p-2 rounded-lg bg-red-950/80 text-red-400 border border-red-800/60">
-              <PhoneCall className="w-4 h-4" />
-            </span>
-            <div>
-              <p className="text-[10px] text-slate-400 font-mono uppercase">State Disaster Helpline</p>
-              <p className="text-xs font-bold text-white font-mono">{currentState.emergencyHelpline}</p>
+          {/* Emergency Helpline Box & Report Flood Action */}
+          <div className="flex flex-wrap items-center gap-3">
+            {onOpenReportFlood && (
+              <button
+                type="button"
+                onClick={onOpenReportFlood}
+                className="flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500 text-white font-bold text-xs shadow-md shadow-red-950 transition hover:scale-[1.02]"
+              >
+                <AlertTriangle className="w-4 h-4 text-white" />
+                <span>Be Flood Ready: {currentState.name}</span>
+              </button>
+            )}
+
+            <div className="flex items-center gap-3 p-2.5 px-3 rounded-xl bg-slate-950/90 border border-slate-800">
+              <span className="p-1.5 rounded-lg bg-red-950/80 text-red-400 border border-red-800/60">
+                <PhoneCall className="w-3.5 h-3.5" />
+              </span>
+              <div>
+                <p className="text-[10px] text-slate-400 font-mono uppercase">State Disaster Helpline</p>
+                <p className="text-xs font-bold text-white font-mono">{currentState.emergencyHelpline}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -207,7 +221,7 @@ export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, o
             }`}
           >
             <CloudRain className="w-4 h-4" />
-            Rainfall Analytics & Seasonality
+            Rainfall & Seasons
           </button>
 
           <button
@@ -219,7 +233,7 @@ export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, o
             }`}
           >
             <ShieldAlert className="w-4 h-4" />
-            Flood Risk & Vulnerable Districts
+            Flood Risk & At-Risk Districts
           </button>
 
           <button
@@ -231,7 +245,7 @@ export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, o
             }`}
           >
             <History className="w-4 h-4" />
-            Previous & Historical Floods ({currentState.historicalFloods.length})
+            Past Floods & History ({currentState.historicalFloods.length})
           </button>
 
           <button
@@ -243,7 +257,7 @@ export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, o
             }`}
           >
             <Activity className="w-4 h-4" />
-            River Gauges & Telemetry ({currentState.gaugeStations.length})
+            River Gauges & Water Levels ({currentState.gaugeStations.length})
           </button>
 
           <button
@@ -255,7 +269,7 @@ export const StateExplorer: React.FC<StateExplorerProps> = ({ selectedStateId, o
             }`}
           >
             <Cpu className="w-4 h-4" />
-            Active ML Models ({currentState.mlDeployments.length})
+            Active AI Models ({currentState.mlDeployments.length})
           </button>
         </div>
 

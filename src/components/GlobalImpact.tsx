@@ -38,13 +38,13 @@ export const GlobalImpact: React.FC = () => {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950/80 text-emerald-300 border border-emerald-800/60">
             <Globe2 className="w-3.5 h-3.5" />
-            <span>Worldwide Operational Evidence & Impact</span>
+            <span>Worldwide Evidence & Real Results</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            How Machine Learning Has Transformed Flood Prediction Across the Globe
+            How AI Is Improving Flood Warnings Around the World
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed">
-            From the massive floodplains of the Ganges and Brahmaputra to Japan’s volcanic gorges and the Rhine River delta, empirical field deployments demonstrate how artificial intelligence turns chaotic meteorological data into life-saving multi-day evacuation lead times.
+            From the Ganges and Brahmaputra river plains to Japan’s mountain rivers and Europe’s Rhine delta, field projects show that AI gives communities days of advance warning instead of just hours.
           </p>
         </div>
       </div>
@@ -54,10 +54,10 @@ export const GlobalImpact: React.FC = () => {
         <div>
           <h3 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-emerald-400" />
-            Traditional Hydrology vs. AI-Enhanced Forecasting: Measurable Gains
+            Traditional Methods vs. AI Forecasting: What the Data Shows
           </h3>
           <p className="text-xs text-slate-400 mt-0.5">
-            Empirically documented improvements across international flood awareness networks.
+            Measured improvements documented across global flood monitoring networks.
           </p>
         </div>
 

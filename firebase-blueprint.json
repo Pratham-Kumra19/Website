@@ -1,0 +1,104 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with disaster management role and state preference",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["citizen", "researcher", "officer", "analyst"] },
+        "statePreference": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "SavedSimulation": {
+      "title": "SavedSimulation",
+      "description": "Saved hydrological scenario simulation run by a user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "basinName": { "type": "string" },
+        "modelType": { "type": "string" },
+        "rainfall24hMm": { "type": "number" },
+        "soilMoisturePct": { "type": "number" },
+        "damDischargeCumecs": { "type": "number" },
+        "peakWaterLevelM": { "type": "number" },
+        "alertLevel": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "basinName", "peakWaterLevelM", "alertLevel"]
+    },
+    "UserBookmark": {
+      "title": "UserBookmark",
+      "description": "User bookmarked river telemetry station or hotspot",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "stationId": { "type": "string" },
+        "stationName": { "type": "string" },
+        "stateId": { "type": "string" },
+        "river": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "stationId", "stateId"]
+    },
+    "FloodReport": {
+      "title": "FloodReport",
+      "description": "Citizen and researcher ground-truth flood report with GPS coordinates and warning alert subscription",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string", "format": "email" },
+        "stateId": { "type": "string" },
+        "district": { "type": "string" },
+        "locationDescription": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "severity": { "type": "string", "enum": ["advisory", "warning", "danger", "extreme"] },
+        "waterDepthMeters": { "type": "number" },
+        "submergedInfrastructure": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "urgencyStatus": { "type": "string", "enum": ["urgent_rescue_needed", "water_entering_homes", "road_blocked", "monitoring"] },
+        "subscribeAlerts": { "type": "boolean" },
+        "alertEmail": { "type": "string", "format": "email" },
+        "notifyOnWarning": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["submitted", "verified_by_ndrf", "warning_broadcasted", "resolved"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "stateId", "district", "latitude", "longitude", "severity"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile data only accessible by the owner"
+    },
+    "/users/{userId}/savedSimulations/{simId}": {
+      "schema": { "$ref": "#/entities/SavedSimulation" },
+      "description": "Hydrological simulations saved by the authenticated user"
+    },
+    "/users/{userId}/bookmarks/{bookmarkId}": {
+      "schema": { "$ref": "#/entities/UserBookmark" },
+      "description": "Bookmarked telemetry stations and hotspots for quick monitoring"
+    },
+    "/users/{userId}/floodReports/{reportId}": {
+      "schema": { "$ref": "#/entities/FloodReport" },
+      "description": "Flood reports and alert warning subscriptions created by the user"
+    },
+    "/floodReports/{reportId}": {
+      "schema": { "$ref": "#/entities/FloodReport" },
+      "description": "Community flood reports verified for regional early warning dissemination"
+    }
+  }
+}
